@@ -33,6 +33,32 @@
 #define MATRIX_COL_PINS { GP28, GP21, GP6, GP7, GP8 }
 #define MATRIX_ROW_PINS { GP24, GP5, GP4, GP9 }
 
+/* -----------------------------
+ * VIK bus pins (svlinky)
+ * ----------------------------- */
+
+// SPI for VIK modules (trackball/trackpad sensors, displays, etc.)
+#define VIK_SPI_SCK_PIN  GP14
+#define VIK_SPI_MOSI_PIN GP15
+#define VIK_SPI_MISO_PIN GP12
+#define VIK_SPI_CS       GP13
+
+// I2C for VIK modules
+#define VIK_I2C_SDA_PIN  GP10
+#define VIK_I2C_SCL_PIN  GP11
+
+// Extra VIK GPIO (svlinky v0.2)
+#define VIK_GPIO_1       GP26
+#define VIK_GPIO_2       GP27
+
+/* -----------------------------
+ * RGB over VIK (your SK6812MINI-E chain)
+ * ----------------------------- */
+
+// “RGB Data Out from VIK” on svlinky is GP16.
+#undef WS2812_DI_PIN
+#define WS2812_DI_PIN GP16
+
 #ifdef VIA_ENABLE
 /* VIA configuration. */
 #    define DYNAMIC_KEYMAP_LAYER_COUNT 7
