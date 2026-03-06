@@ -34,7 +34,7 @@
 
 //#define MATRIX_COL_PINS { GP27, GP28, GP21, GP6, GP7, GP8 }
 //#define MATRIX_ROW_PINS { GP29, GP24, GP5, GP4, GP9 }
-#define MATRIX_COL_PINS { GP28, GP21, GP6, GP7, GP8 }
+#define MATRIX_COL_PINS { GP27, GP28, GP21, GP6, GP7 }
 #define MATRIX_ROW_PINS { GP29, GP24, GP5, GP4 }
 
 /* -----------------------------
