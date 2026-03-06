@@ -18,24 +18,20 @@
 
 /* -------------------------------------------------
  * Svlinky v0.2 matrix pin translation for Charybdis
- * (Splinky shield wiring, but on Svlinky v0.2)
  *
- * Splinky typical:
- *   Cols: GP27, GP28, GP21, GP6, GP7, GP8
- *   Rows: GP29, GP26, GP5, GP4, GP9
+ * BastardKB Splinky shield pins for Charybdis 3x5:
+ *   Cols: GP28, GP21, GP6, GP7, GP8
+ *   Rows: GP26, GP5, GP4, GP9
  *
- * Svlinky v0.2 swap:
- *   GP27 -> GP18
- *   GP26 -> GP24
+ * Svlinky v0.2 swap: GP26 -> GP24
+ * (GP27 is not a matrix pin; it moved to VIK bus)
  * ------------------------------------------------- */
 
 #undef MATRIX_COL_PINS
 #undef MATRIX_ROW_PINS
 
-//#define MATRIX_COL_PINS { GP27, GP28, GP21, GP6, GP7, GP8 }
-//#define MATRIX_ROW_PINS { GP29, GP24, GP5, GP4, GP9 }
-#define MATRIX_COL_PINS { GP27, GP28, GP21, GP6, GP7 }
-#define MATRIX_ROW_PINS { GP29, GP24, GP5, GP4 }
+#define MATRIX_COL_PINS { GP28, GP21, GP6, GP7, GP8 }
+#define MATRIX_ROW_PINS { GP24, GP5, GP4, GP9 }
 
 /* -----------------------------
  * VIK bus pins (svlinky)
