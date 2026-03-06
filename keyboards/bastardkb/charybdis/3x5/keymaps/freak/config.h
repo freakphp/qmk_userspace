@@ -33,29 +33,42 @@
 #define MATRIX_COL_PINS { GP28, GP21, GP6, GP7, GP8 }
 #define MATRIX_ROW_PINS { GP24, GP5, GP4, GP9 }
 
-/* -----------------------------
- * VIK bus pins (svlinky)
- * ----------------------------- */
+/* -------------------------------------------------
+ * Svlinky v0.2: remap Splinky SPI0 → VIK SPI1
+ *
+ * Parent charybdis config.h (Splinky shield, SPI0):
+ *   SCK=GP22, MOSI=GP23, MISO=GP20, CS=GP16
+ *
+ * Svlinky v0.2 VIK bus (SPI1):
+ *   SCK=GP14, MOSI=GP15, MISO=GP12, CS=GP13
+ * ------------------------------------------------- */
+#undef SPI_DRIVER
+#define SPI_DRIVER SPID1
 
-// SPI for VIK modules (trackball/trackpad sensors, displays, etc.)
-#define VIK_SPI_SCK_PIN  GP14
-#define VIK_SPI_MOSI_PIN GP15
-#define VIK_SPI_MISO_PIN GP12
-#define VIK_SPI_CS       GP13
+#undef SPI_SCK_PIN
+#define SPI_SCK_PIN GP14
 
-// I2C for VIK modules
-#define VIK_I2C_SDA_PIN  GP10
-#define VIK_I2C_SCL_PIN  GP11
+#undef SPI_MOSI_PIN
+#define SPI_MOSI_PIN GP15
 
-// Extra VIK GPIO (svlinky v0.2)
-#define VIK_GPIO_1       GP26
-#define VIK_GPIO_2       GP27
+#undef SPI_MISO_PIN
+#define SPI_MISO_PIN GP12
 
-/* -----------------------------
- * RGB over VIK (your SK6812MINI-E chain)
- * ----------------------------- */
+#undef POINTING_DEVICE_CS_PIN
+#define POINTING_DEVICE_CS_PIN GP13
 
-// “RGB Data Out from VIK” on svlinky is GP16.
+/* VIK I2C (I2C1 on RP2040) */
+#define I2C_DRIVER I2CD1
+#define I2C1_SDA_PIN GP10
+#define I2C1_SCL_PIN GP11
+
+/* VIK extra GPIO (analog-capable on svlinky v0.2) */
+#define VIK_GPIO_1 GP26
+#define VIK_GPIO_2 GP27
+
+/* WS2812 data routed through VIK on GP16.
+ * Parent keyboard.json sets GP0 for Splinky;
+ * parent config.h had GP16 as POINTING_DEVICE_CS (now GP13). */
 #undef WS2812_DI_PIN
 #define WS2812_DI_PIN GP16
 
