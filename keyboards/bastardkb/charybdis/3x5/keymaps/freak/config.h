@@ -72,6 +72,17 @@
 #undef WS2812_DI_PIN
 #define WS2812_DI_PIN GP16
 
+/* Compile-time checks: verify VIK overrides took effect */
+#if POINTING_DEVICE_CS_PIN != GP13
+#    error "POINTING_DEVICE_CS_PIN override failed — still not GP13"
+#endif
+#if WS2812_DI_PIN != GP16
+#    error "WS2812_DI_PIN override failed — still not GP16"
+#endif
+#if SPI_SCK_PIN != GP14
+#    error "SPI_SCK_PIN override failed — still not GP14"
+#endif
+
 #ifdef VIA_ENABLE
 /* VIA configuration. */
 #    define DYNAMIC_KEYMAP_LAYER_COUNT 7
