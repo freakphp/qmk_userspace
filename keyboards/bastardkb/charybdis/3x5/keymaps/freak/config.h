@@ -28,10 +28,19 @@
  *   GP27 -> GP18
  *   GP26 -> GP24
  * ------------------------------------------------- */
+#undef MATRIX_ROWS
+#undef MATRIX_COLS
+#define MATRIX_ROWS 8
+#define MATRIX_COLS 10
+
 #undef MATRIX_COL_PINS
 #undef MATRIX_ROW_PINS
-#define MATRIX_COL_PINS { GP27, GP28, GP21, GP6, GP7 }
-#define MATRIX_ROW_PINS { GP29, GP24, GP5, GP4 }
+
+#define MATRIX_ROW_PINS { GP29, GP28, GP18, GP24, GP22, GP20, GP23, GP21 }
+#define MATRIX_COL_PINS { GP0, GP1, GP2, GP3, GP4, GP5, GP6, GP7, GP8, GP9 }
+
+//#define MATRIX_COL_PINS { GP27, GP28, GP21, GP6, GP7, GP8 }
+//#define MATRIX_ROW_PINS { GP29, GP24, GP5, GP4, GP9 }
 
 /* -----------------------------
  * VIK bus pins (svlinky)
